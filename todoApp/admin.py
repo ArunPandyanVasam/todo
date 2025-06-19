@@ -8,7 +8,7 @@ from .models import Task
 class TaskAdmin(admin.ModelAdmin):
     list_display = ('task', 'is_completed', 'created_at', 'updated_at')
     list_filter = ('is_completed',)
-    search_fields = ('task',)
+    search_fields = ('task',) # their are alot of fields
 
 admin.site.register(Task, TaskAdmin)
 
