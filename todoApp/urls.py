@@ -1,0 +1,5 @@
+from django.urls import path
+
+urlpatterns = [
+    path('addTask/', views.addTask, name='addTask'), #addTask/ -> path, views.addTask - > views is file for business logic and addTask is a function in that file, addTask -> helps for routing or navigating
+]
