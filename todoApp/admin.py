@@ -3,4 +3,17 @@ from .models import Task
 #from todoApp.models import Task
 
 # Register your models here.
-admin.site.register(Task)
+# admin.site.register(Task) -> Defaulity functionalty
+
+class TaskAdmin(admin.ModelAdmin):
+    list_display = ('task', 'is_completed', 'created_at', 'updated_at')
+
+admin.site.register(Task, TaskAdmin)
+
+
+# Another way to override the functionality
+# @admin.register(Task)
+# class TaskAdmin(admin.ModelAdmin):
+#     list_display = ('task', 'is_completed', 'created_at', 'updated_at')
+#     list_filter = ('is_completed',)
+#     search_fields = ('task',)
