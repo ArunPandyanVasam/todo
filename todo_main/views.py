@@ -3,7 +3,7 @@ from todoApp.models import Task
 
 
 def home(request):
-    tasks = Task.objects.filter(is_completed=False)
+    tasks = Task.objects.filter(is_completed=False).order_by('-updated_at') #tasks = Task.objects.filter(is_completed=False)
     #print(tasks)
     context = {
         'tasks': tasks # orange task123 can also we can name it
