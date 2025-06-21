@@ -120,7 +120,7 @@
                 <a href="{% url 'mark_as_done' i.pk %}" class="btn-icon text-success me-3" title="Mark as Done">
                   <i class="fa-solid fa-circle-check fa-lg"></i>
                 </a>
-                <a href="#" class="btn-icon text-danger me-3" title="Delete">
+                <a href="{% url 'delete_task' i.pk %}" class="btn-icon text-danger me-3" title="Delete">
                   <i class="fa-solid fa-trash fa-lg"></i>
                 </a>
                 <a href="{% url 'edit_task' i.id %}" class="btn-icon text-primary" title="Edit">
