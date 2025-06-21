@@ -19,3 +19,6 @@ def mark_as_undo(request, pk):
     task.is_completed = False # task is object from top line and is_completed is field from model
     task.save() # now save
     return redirect('home')#return HttpResponse(task) #return HttpResponse(pk)
+
+def edit_task(request, pk):
+    return render(request, 'edit_task.html')

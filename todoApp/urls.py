@@ -11,6 +11,6 @@ urlpatterns = [
     #Mark as undo
     path('mark_as_undo/<int:pk>/', views.mark_as_undo, name='mark_as_undo'),
 
-    #Edite Feature
-
+    #Edit Feature
+    path('edit_task/<int:pk>/', views.edit_task, name='edit_task'),
 ]
