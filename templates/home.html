@@ -16,60 +16,63 @@
       background: linear-gradient(to bottom right, #eef2f7, #f9fbfc);
       font-family: 'Segoe UI', sans-serif;
       color: #333;
-    }
-
-    h3,
-    h4,
-    h5 {
-      font-weight: 600;
+      min-height: 100vh;
     }
 
     .main-header {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
 
     .main-header h3 {
-      font-size: 2rem;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0d6efd;
     }
 
     .card {
       border: none;
       border-radius: 16px;
-      background: #ffffff;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease-in-out;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+      transition: transform 0.25s ease-in-out, box-shadow 0.25s;
     }
 
     .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
     }
 
     .scroll-box {
       max-height: 400px;
       overflow-y: auto;
-      padding-right: 10px;
+      padding-right: 8px;
     }
 
     .btn-icon {
       border: none;
       background: none;
       color: #555;
-      transition: 0.2s;
-      padding: 0;
-      margin: 0;
+      transition: 0.2s ease-in-out;
     }
 
     .btn-icon:hover {
       color: #000;
-      transform: scale(1.1);
+      transform: scale(1.15);
     }
 
     .add-task-input {
       border-radius: 12px;
-      padding: 1rem;
+      padding: 1rem 1.2rem;
       font-size: 1rem;
+      border: 1px solid #ced4da;
+      transition: border-color 0.3s;
+    }
+
+    .add-task-input:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.1);
     }
 
     .add-task-btn {
@@ -79,7 +82,7 @@
       background: linear-gradient(to right, #4facfe, #00f2fe);
       color: white;
       border: none;
-      transition: 0.3s;
+      transition: background 0.4s, box-shadow 0.3s;
     }
 
     .add-task-btn:hover {
@@ -96,6 +99,18 @@
       background: #f0f4f8;
       border-radius: 16px;
       padding: 1rem;
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.03);
+    }
+
+    @media (max-width: 768px) {
+      .d-flex.align-items-center.gap-3 {
+        flex-direction: column;
+        align-items: stretch !important;
+      }
+
+      .add-task-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -160,8 +175,7 @@
       <div class="col-md-10 mx-auto">
         <form action="{% url 'addTask' %}" method="post" class="d-flex gap-3 align-items-center">
           {% csrf_token %}
-          <input type="text" name="task" class="form-control add-task-input" placeholder="Add a new premium task..."
-            required>
+          <input type="text" name="task" class="form-control add-task-input" placeholder="Add a new premium task..." required>
           <button type="submit" class="add-task-btn">
             <i class="fa fa-plus me-1"></i> Add Task
           </button>
